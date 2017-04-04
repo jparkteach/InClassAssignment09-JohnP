@@ -101,11 +101,15 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser user = auth.getCurrentUser();
         DatabaseReference userRef = database.getReference(user.getUid());
         userRef.push().setValue(new message(messageText.getText().toString()));
+        messageText.setText("");
     }
 
     public void signOut(View view) {
         auth.signOut();
+        messagesList = new ArrayList<>();
         String text = "";
+        for (message m : messagesList)
+            text += m + "\n";
         displayText.setText(text);
     }
 }
