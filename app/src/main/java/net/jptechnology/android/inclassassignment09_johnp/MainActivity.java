@@ -105,5 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void signOut(View view) {
         auth.signOut();
+        String text = "";
+        displayText.setText(text);
     }
 }
